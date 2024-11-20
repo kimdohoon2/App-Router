@@ -1,5 +1,11 @@
 import style from "./page.module.css";
 
+// export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+}
+
 export default async function Page({
   params,
 }: {
@@ -13,7 +19,7 @@ export default async function Page({
     return <div>오류가 발생했습니다...</div>;
   }
   const books = await response.json();
-  const { id, title, subTitle, description, author, publisher, coverImgUrl } =
+  const { title, subTitle, description, author, publisher, coverImgUrl } =
     books;
 
   return (
